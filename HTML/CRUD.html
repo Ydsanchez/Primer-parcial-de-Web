@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CRUD GUARDAR</title>
+
+    <!--style css guardar.css-->
+    <link rel="stylesheet" href="/CSS/CRUD.css">
+
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--script guardar Medicamentos en DB-->
+    <script src="../JS/jquery.js"></script>
+    <script src="../JS/creardb.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <header>
+        <h1>
+            INVENTARIO DE MEDICAMENTOS
+        </h1>
+    </header>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="../index.html">
+                            <span class="material-icons">medication</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="contenedor">
+
+        <div class="row">
+
+            <input type="hidden" class="form-control" id="codigo_medicamento" placeholder="Codigo">
+
+            <div class="col-md-4">
+                <label for="formGroupExampleInput" class="form-label">Nombre Comercial del Medicamento</label>
+                <input type="text" class="caja form-control" id="nom_medicamento_comercial"
+                    placeholder="Digite el nombre comercial del medicamento">
+            </div>
+
+            <div class="col-md-4">
+                <label for="formGroupExampleInput2" class="form-label">Nombre generico del Medicamento</label>
+                <input type="text" class="form-control" id="nom_medicamento_generico"
+                    placeholder="Digite el nombre generico del medicamento">
+            </div>
+
+            <div class="col-md-3">
+                <label for="formGroupExampleInput2" class="form-label">Nombre del Laboratorio</label>
+                <input type="text" class="form-control" id="nom_laboratorio"
+                    placeholder="Digite el nombre del laboratorio">
+
+            </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+
+            <div class="col-md-3">
+                <label for="formGroupExampleInput2" class="form-label">Concentracion del Medicamento</label>
+                <input type="text" class="form-control" id="concentracion_medicamento" placeholder="Ejemplo 500mg">
+            </div>
+
+            <div class="col-md-3">
+                <label for="" class="form-label">Presentacion</label>
+                <input type="text" class="form-control" id="presentacion_medicamento"
+                    placeholder="Digite la presentacion del medicamento">
+            </div>
+
+            <div class="col-md-1">
+                <label for="" class="form-label">Lote</label>
+                <input type="text" class="form-control" placeholder="Lote" id="lote_medicamento">
+            </div>
+
+            <div class="col-md-2">
+                <label for="" class="form-label">Fecha Vencimiento</label>
+                <input type="date" class="form-control" placeholder="mm/aaaa" id="fecha_medicamento">
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Descripcion y conservacion del
+                    medicamento</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    id="conservacion_medicamento"></textarea>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="contenedor">
+            <input type="button" class="btn btn-dark" id="btnGuardar" value="Guardar">
+            <input type="button" class="btn btn-dark" id="btnActualizar" value="Actualizar">
+            <br>
+            <input type="button" class="btn btn-dark" id="btnCancelar" value="Cancelar">
+        </div>
+    </div>
+
+    <br>
+
+    <div id="listaMedicamentos">
+        <table id="medicamentos">
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

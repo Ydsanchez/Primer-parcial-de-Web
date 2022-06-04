@@ -1,0 +1,28 @@
+body{
+    color: #ffffff;
+}
+
+header{
+    align-items: center;
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.material-icons{
+    font-size: 35px !important; 
+}
+
+.navbar{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.navbar-nav{
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%);
+}
