@@ -54,7 +54,6 @@ function objeto(){
         $("#fecha_medicamento").val(),
         $("#conservacion_medicamento").val()
     );
-    console.log(medicamentos);
     return medicamentos;
 }
 
@@ -84,13 +83,14 @@ function Guardar(medicamentos,base) {
 
 function Eliminar(codigo_medicamento, base) {
     base.transaction(function (t) {
-        t.executeSql("DELETE FROM Medicamentos WHERE codigo_medicamento = " +codigo_medicamento);
+        t.executeSql("DELETE FROM Medicamentos WHERE codigo_medicamento =" +codigo_medicamento);
     });
 }
 
 function Actualizar(medicamentos, base) {
+
     base.transaction(function (t) {
-        var sql = "UPDATE Medicamentos SET nom_medicamento_comercial = ?,nom_medicamento_generico = ?,concentracion_medicamento = ?,nom_laboratorio = ?";
+        var sql = "UPDATE Medicamentos SET nom_medicamento_comercial = ?,nom_medicamento_generico = ?,concentracion_medicamento = ?,nom_laboratorio = ?,";
             sql += "presentacion_medicamento = ?,lote_medicamento = ?,fecha_medicamento = ?,conservacion_medicamento = ? WHERE codigo_medicamento = ?";
         t.executeSql(sql,
             [medicamentos.nom_medicamento_comercial,
@@ -99,7 +99,7 @@ function Actualizar(medicamentos, base) {
                 medicamentos.lote_medicamento,medicamentos.fecha_medicamento,medicamentos.conservacion_medicamento,
                 medicamentos.codigo_medicamento]
         );
-        console.log(medicamentos.nom_medicamento_comercial);
+        
     });
 }
 
@@ -116,6 +116,7 @@ function mostrarCodigo(codigo_medicamento, base) {
             $("#fecha_medicamento").val(resultado.rows.item(0).fecha_medicamento);
             $("#conservacion_medicamento").val(resultado.rows.item(0).conservacion_medicamento);
         })
+
     })
 }
 
@@ -154,18 +155,17 @@ function mostrar(base){
             }
             
             $("#medicamentos").html(cabecera + cuerpo);
+
             $('.eliminar').click(function () {
                 var confirmar = confirm("¿Desea eliminar?");
                 if(confirmar == 1){
-                    eliminar($(this).attr('data-eliminar'),base);
+                    Eliminar($(this).attr('data-eliminar'),base);
                     mostrar(base);
                 }
             });
 
             $('.modificar').click(function () {
-                
-
-                console.log(mostrarCodigo($(this).attr('data-modificar'),base));
+                mostrarCodigo($(this).attr('data-modificar'),base);
                 $("#btnGuardar").css("display","none");
                 $("#btnActualizar").css("display", "block");
                 $("#btnCancelar").css("display", "block");
