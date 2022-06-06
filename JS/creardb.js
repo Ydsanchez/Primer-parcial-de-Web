@@ -89,7 +89,7 @@ function Eliminar(codigo_medicamento, base) {
 
 function Actualizar(medicamentos, base) {
 
-    base.transaction(function (t) {
+    base.transaction(function (t){
         var sql = "UPDATE Medicamentos SET nom_medicamento_comercial = ?,nom_medicamento_generico = ?,concentracion_medicamento = ?,nom_laboratorio = ?,";
             sql += "presentacion_medicamento = ?,lote_medicamento = ?,fecha_medicamento = ?,conservacion_medicamento = ? WHERE codigo_medicamento = ?";
         t.executeSql(sql,
